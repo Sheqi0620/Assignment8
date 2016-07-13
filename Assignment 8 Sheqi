@@ -1,0 +1,18 @@
+Assignment 8  Sheqi
+
+1. What is the output? Assume that the malloc() call was successful. If you think that the program contains bugs (other than memory leaks) that can make the program crash (ex. segmentation fault), write "CAN CRASH" and then write the most likely output if the program happens to run without crashing.
+Answer:
+The output is "ABCabc123". CAN CRASH. Most likely output: usage: ./a.out <arg1> <arg2>.
+
+2. If the program is run using valgrind, how many bytes will valgrind report as "definitely lost"? You can write 0 if you think there is no memory leak that valgrind will consider "definitely lost". Please make sure to write the number of BYTES.
+Answer:
+1*2=2. Because only *p is been allocated, while is not freed as well. In this circumstance, only *p is the memory leak.
+
+3. Identify the line numbers that contains memory errors other than memory leaks (invalid access, for example.) If you think that there is no memory error other than possible memory leaks, write NONE. You don’t have to identify the nature of the memory errors. Just line numbers.
+Answer:
+None.
+
+4. Modify the program to fix ALL memory errors, including memory leaks. Write only the lines that need to be fixed. Write the line number and the line of code that will replace that line. If you think there is nothing to fix, write "NO CHANGE". The program can be memory error free by modifying 0 to 3 lines of code. Please do not modify more than 3 lines of code.
+35 free(p);
+36 return 0;
+37}
