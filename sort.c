@@ -5,46 +5,52 @@
 
 int main(){
 	srand(time(NULL));
-	int x;
 	printf("Please enter an integer:\n");
-	char*array1=malloc(x*sizeof(array1));
-	fgets(array1,x,stdin);
-	size_t last=strlen(array1);
+	int x;
+	scanf("%d",&x);
+	int array1[x];
+	int*p=array1;
+	p=(int*) malloc (100);
 
-	int i,j;
+	int i;
 	for(i=0;i<x;i++){
-		array1[i]=rand();
-		j=atoi(&array1[i]);
-		fgets(array1,x,stdin);
+		array1[i]=rand()%100;
+	//	printf("%d\n",array1[i]);
 	}
 
-	char*array2=malloc(x*sizeof(array2));
-	fgets(array2,x,stdin);
-	char*array3=malloc(x*sizeof(array3));
-	fgets(array3,x,stdin);
-	strcpy(array1,array2);
-	strcpy(array1,array3);
+	int array2[x];
+	int array3[x];
+	int*q=array2;
+	q=(int*) malloc(100);
+	int*b=array3;
+	b=(int*) malloc(100);
 
-	int a,b; //www.studystreet.com/c-program-sort-array-ascending-order/
-	int tem1;
-	for(a=0;a<x;a++)
+	for(i=0;i<x;i++){
+		array2[i]=array1[i];
+		array3[i]=array1[i];
+//		printf("%d\n",array2[i]);
+	}
+
+	int j; //www.studystreet.com/c-program-sort-array-ascending-order/
+	int tem1=0;
+	for(i=0;i<x;i++)
 	{
-		for(b=0;b<x-a;b++)
+		for(j=0;j<x-i;j++)
 		{
-			if(array2[b]>array2[b+1])
+			if(array2[j]>array2[j+1])
 			{
-				tem1=array2[b];
-				array2[b]=array2[b+1];
-				array2[b+1]=tem1;
+				tem1=array2[j];
+				array2[j]=array2[j+1];
+				array2[j+1]=tem1;
 			}
 		}
 	}
 
-	int c,d; //www.studystreet.com/program-sort-array-descending-order/
-	int tem2;
-	for(c=0;c<x;c++)
+	int d; //www.studystreet.com/program-sort-array-descending-order/
+	int tem2=0;
+	for(i=0;i<x;i++)
 	{
-		for(d=0;d<x-a;d++)
+		for(d=0;d<x-i;d++)
 		{
 			if(array3[d]<array3[d+1])
 			{
@@ -54,10 +60,21 @@ int main(){
 			}
 		}
 	}
+	
+	printf("array1 is:\n");
+	for(i=0;i<x;i++){
+		printf("%d\n",array1[i]);
+	}
 
-	printf("%p",array1);
-	printf("%p",array2);
-	printf("%p",array3);
+	printf("array2 is:\n");
+	for(i=0;i<x;i++){
+		printf("%d\n",array2[i]);
+	}
+
+	printf("array3 is:\n");
+	for(i=0;i<x;i++){
+		printf("%d\n",array3[i]);
+	}
 
 	return 0;
 }
